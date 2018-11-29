@@ -9,15 +9,19 @@ public class WeatherMonitor {
 	
 	// method that produces the average temperature over all days in a month
 	double averageTempForMonth(int Month, int Year) {
+		return 2;
 		
 	}
 	
 	// method that produces the total rainfall over all days in a month
 	double totalRainfallForMonth(int Month, int Year) {
+	    return 2;
 		
 	}
 	
 	DailyWeatherReport addDailyReport(GregorianCalendar date, LinkedList<Reading> readings) {
+
+	    return new DailyWeatherReport();
 		
 	}
 
