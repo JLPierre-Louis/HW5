@@ -31,3 +31,4 @@ public class WeatherMonitor {
 // readings for that day. a "DailyWeatherReport" contains the
 // Date(java class GregorianCalendar), and two LinkedLists(one for temp,
 // and one for the rainfall, both for that day). 
+
