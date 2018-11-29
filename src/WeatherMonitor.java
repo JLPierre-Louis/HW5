@@ -6,25 +6,43 @@ public class WeatherMonitor {
 	// We won't actually require you to provide examples of daily weather reports for every single day in a month. 
 		// Your calculations of averageTempForMonth and totalRainfallForMonth should produce the averages over all days 
 		// in the month for which there are daily weather reports.
-	
-	// method that produces the average temperature over all days in a month
+
+    /**
+     *
+     * @param Month
+     * @param Year
+     * @return Returns average temperatures over all days with a temperate in a month
+     */
 	double averageTempForMonth(int Month, int Year) {
 		return 2;
 		
 	}
-	
-	// method that produces the total rainfall over all days in a month
+
+    /**
+     *
+     * @param Month
+     * @param Year
+     * @return Returns average rainfall over all days with a rainfall in a month
+     */
 	double totalRainfallForMonth(int Month, int Year) {
-	    int total = 0;
+
+	    
 
 
-		
-	}
-	
+        return 0;
+    }
+
+    /**
+     *
+     * @param date
+     * @param readings
+     * @return adds a weather report with the specific date, and readings for that day
+     */
 	DailyWeatherReport addDailyReport(GregorianCalendar date, LinkedList<Reading> readings) {
 
-		
-	}
+
+        return null;
+    }
 
 }
 
@@ -35,5 +53,8 @@ public class WeatherMonitor {
 // WeatherMonitor will store daily weather reports that each have all the 
 // readings for that day. a "DailyWeatherReport" contains the
 // Date(java class GregorianCalendar), and two LinkedLists(one for temp,
-// and one for the rainfall, both for that day). 
+// and one for the rainfall, both for that day).
+
+//When constructing a date for a daily weather report, use this version of the GregorianCalendar constructor:
+// public GregorianCalendar (int year, int month, int dayOfMonth)
 

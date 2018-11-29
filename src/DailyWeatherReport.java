@@ -3,12 +3,12 @@ import java.util.LinkedList;
 public class DailyWeatherReport {
 
     GregorianCalendar date;
-    LinkedList<Reading> aReading;
+    LinkedList<Double> tempReading;
     LinkedList<Double> aRainfall;
 
-    public DailyWeatherReport(GregorianCalendar date, LinkedList<Reading> aReading, LinkedList<Double> aRainfall){
+    public DailyWeatherReport(GregorianCalendar date, LinkedList<Double> tempReading, LinkedList<Double> aRainfall){
         this.date = date;
-        this.aReading = aReading;
+        this.tempReading = tempReading;
         this.aRainfall = aRainfall;
     }
 
