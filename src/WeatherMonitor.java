@@ -42,9 +42,15 @@ public class WeatherMonitor {
 	DailyWeatherReport addDailyReport(GregorianCalendar date, LinkedList<Reading> readings) {
 
 	    //Gets the month of that date
-	    date.get(Calendar.MONTH);
+	    int month = date.get(Calendar.MONTH);
 	    //Gets the day of the month of that date
-	    date.get(Calendar.DAY_OF_MONTH);
+	    int day = date.get(Calendar.DAY_OF_MONTH);
+
+	    int year = date.get(Calendar.YEAR);
+
+
+
+	    date = new GregorianCalendar(month, day, year);
 
 	    LinkedList<Double> readingsOnly = new LinkedList<Double>();
 	    LinkedList<Double> tempsOnly = new LinkedList<Double>();
