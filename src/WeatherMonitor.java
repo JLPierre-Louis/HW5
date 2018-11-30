@@ -1,3 +1,4 @@
+import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.LinkedList;
 
@@ -40,8 +41,22 @@ public class WeatherMonitor {
      */
 	DailyWeatherReport addDailyReport(GregorianCalendar date, LinkedList<Reading> readings) {
 
+	    //Gets the month of that date
+	    date.get(Calendar.MONTH);
+	    //Gets the day of the month of that date
+	    date.get(Calendar.DAY_OF_MONTH);
 
-        return null;
+	    LinkedList<Double> readingsOnly = new LinkedList<Double>();
+	    LinkedList<Double> tempsOnly = new LinkedList<Double>();
+
+	    for(Reading aReading: readings){
+	        readingsOnly.add(aReading.rainfall);
+	        tempsOnly.add(aReading.temp);
+
+        }
+
+
+        return new DailyWeatherReport(date, tempsOnly, readingsOnly);
     }
 
 }
