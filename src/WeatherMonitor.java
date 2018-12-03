@@ -3,7 +3,7 @@ import java.util.GregorianCalendar;
 import java.util.LinkedList;
 import java.util.stream.Collectors;
 
-public class WeatherMonitor {
+public class WeatherMonitor implements IWeather{
 	
 	// We won't actually require you to provide examples of daily weather reports for every single day in a month. 
 		// Your calculations of averageTempForMonth and totalRainfallForMonth should produce the averages over all days 
@@ -22,14 +22,12 @@ public class WeatherMonitor {
      * @return Returns average temperatures over all days with a temperate in a month
      */
 	double averageTempForMonth(int Month, int Year) {
-		LinkedList<DailyWeatherReport> data = this.reports.stream().filter(aReport -> (aReport.date.get(GregorianCalendar.MONTH) == Month && aReport.date.get(GregorianCalendar.YEAR) == Year)).collect(Collectors.toCollection(LinkedList::new));
+		LinkedList<DailyWeatherReport> data = this.reports.stream().filter(aReport -> (aReport.getDate().get(GregorianCalendar.MONTH) == Month && aReport.getDate().get(GregorianCalendar.YEAR) == Year)).collect(Collectors.toCollection(LinkedList::new));
 		double sumOfTemps = 0;
 		double counter = 0;
 		for(DailyWeatherReport aReport: data) {
-			for(Double aReading: aReport.setTempReading(aRainfall);) {
-				sumOfTemps = sumOfTemps + aReading;
-				counter++;
-			}
+			sumOfTemps = sumOfTemps + aReport.averageTemp();
+			counter++;
 		}
 		if(counter < 1) {
 			return -1.0; // -1 indicates no weather data for given month and year 
@@ -45,12 +43,10 @@ public class WeatherMonitor {
      * @return Returns average rainfall over all days with a rainfall in a month
      */
 	double totalRainfallForMonth(int Month, int Year) {
-		LinkedList<DailyWeatherReport> data = this.reports.stream().filter(aReport -> (aReport.date.get(GregorianCalendar.MONTH) == Month && aReport.date.get(GregorianCalendar.YEAR) == Year)).collect(Collectors.toCollection(LinkedList::new));
+		LinkedList<DailyWeatherReport> data = this.reports.stream().filter(aReport -> (aReport.getDate().get(GregorianCalendar.MONTH) == Month && aReport.getDate().get(GregorianCalendar.YEAR) == Year)).collect(Collectors.toCollection(LinkedList::new));
 		double sumOfRain = 0;
 		for(DailyWeatherReport aReport: data) {
-			for(Double aReading: aReport.aRainfall) {
-				sumOfRain = sumOfRain + aReading;
-			}
+			sumOfRain = sumOfRain + aReport.totalRain();
 		}
 		return sumOfRain;
 		
