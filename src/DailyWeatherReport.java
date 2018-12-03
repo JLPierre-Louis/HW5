@@ -12,5 +12,18 @@ public class DailyWeatherReport {
         this.aRainfall = aRainfall;
     }
 
+    public void setDate(GregorianCalendar newDate){
+        date = newDate;
+
+    }
+
+    public void setTempReading(LinkedList<Double> newtempReading){
+        tempReading = newtempReading;
+    }
+
+    public void setaRainfall(LinkedList<Double> newaRainfall){
+        aRainfall = newaRainfall;
+    }
+
 
 }

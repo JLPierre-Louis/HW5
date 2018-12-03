@@ -79,8 +79,8 @@ public class WeatherMonitor {
 	    LinkedList<Double> tempsOnly = new LinkedList<Double>();
 
 	    for(Reading aReading: readings){
-	        readingsOnly.add(aReading.rainfall);
-	        tempsOnly.add(aReading.temp);
+	        readingsOnly.add(aReading.getRainfall());
+	        tempsOnly.add(aReading.getTemp());
 
         }
 

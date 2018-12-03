@@ -11,4 +11,16 @@ public class Reading {
         this.rainfall = rainfall;
     }
 
+    public Time getTime(){
+        return Time;
+    }
+
+    public double getTemp(){
+        return temp;
+    }
+
+    public double getRainfall(){
+        return rainfall;
+    }
+
 }
