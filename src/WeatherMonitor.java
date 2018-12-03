@@ -58,7 +58,7 @@ public class WeatherMonitor implements IWeather{
      * @param readings
      * @return adds a weather report with the specific date, and readings for that day
      */
-	DailyWeatherReport addDailyReport(GregorianCalendar date, LinkedList<Reading> readings) {
+	public DailyWeatherReport addDailyReport(GregorianCalendar date, LinkedList<Reading> readings) {
 
 	    //Gets the month of that date
 	    int month = date.get(Calendar.MONTH);
