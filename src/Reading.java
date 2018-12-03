@@ -1,9 +1,9 @@
 
 public class Reading {
 
-    Time Time;
-    double temp;
-    double rainfall;
+    private Time Time;
+    private double temp;
+    private double rainfall;
 
     public Reading(Time aTime, double temp, double rainfall ){
         this.Time = aTime;

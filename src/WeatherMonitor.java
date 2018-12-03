@@ -9,7 +9,7 @@ public class WeatherMonitor {
 		// Your calculations of averageTempForMonth and totalRainfallForMonth should produce the averages over all days 
 		// in the month for which there are daily weather reports.
 
-	LinkedList<DailyWeatherReport> reports = new LinkedList<DailyWeatherReport>();
+	private LinkedList<DailyWeatherReport> reports = new LinkedList<DailyWeatherReport>();
 	
 	WeatherMonitor(LinkedList<DailyWeatherReport> reports) {
 		this.reports = reports;
