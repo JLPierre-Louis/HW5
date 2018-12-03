@@ -26,7 +26,7 @@ public class WeatherMonitor {
 		double sumOfTemps = 0;
 		double counter = 0;
 		for(DailyWeatherReport aReport: data) {
-			for(Double aReading: aReport.tempReading) {
+			for(Double aReading: aReport.setTempReading(aRainfall);) {
 				sumOfTemps = sumOfTemps + aReading;
 				counter++;
 			}

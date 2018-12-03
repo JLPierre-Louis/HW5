@@ -1,5 +1,5 @@
 
-public class Reading {
+public class Reading implements IWeather {
 
     private Time Time;
     private double temp;
