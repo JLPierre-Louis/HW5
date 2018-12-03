@@ -1,6 +1,7 @@
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.LinkedList;
+import java.util.stream.Collectors;
 
 public class WeatherMonitor {
 	
@@ -8,6 +9,12 @@ public class WeatherMonitor {
 		// Your calculations of averageTempForMonth and totalRainfallForMonth should produce the averages over all days 
 		// in the month for which there are daily weather reports.
 
+	LinkedList<DailyWeatherReport> reports = new LinkedList<DailyWeatherReport>();
+	
+	WeatherMonitor(LinkedList<DailyWeatherReport> reports) {
+		this.reports = reports;
+	}
+	
     /**
      *
      * @param Month
@@ -15,10 +22,22 @@ public class WeatherMonitor {
      * @return Returns average temperatures over all days with a temperate in a month
      */
 	double averageTempForMonth(int Month, int Year) {
-		return 2;
-		
+		LinkedList<DailyWeatherReport> data = this.reports.stream().filter(aReport -> (aReport.date.get(GregorianCalendar.MONTH) == Month && aReport.date.get(GregorianCalendar.YEAR) == Year)).collect(Collectors.toCollection(LinkedList::new));
+		double sumOfTemps = 0;
+		double counter = 0;
+		for(DailyWeatherReport aReport: data) {
+			for(Double aReading: aReport.tempReading) {
+				sumOfTemps = sumOfTemps + aReading;
+				counter++;
+			}
+		}
+		if(counter < 1) {
+			return -1.0; // -1 indicates no weather data for given month and year 
+		} else {
+			return sumOfTemps / counter;
+		}
 	}
-
+	
     /**
      *
      * @param Month
@@ -26,11 +45,15 @@ public class WeatherMonitor {
      * @return Returns average rainfall over all days with a rainfall in a month
      */
 	double totalRainfallForMonth(int Month, int Year) {
-
-	    
-
-
-        return 0;
+		LinkedList<DailyWeatherReport> data = this.reports.stream().filter(aReport -> (aReport.date.get(GregorianCalendar.MONTH) == Month && aReport.date.get(GregorianCalendar.YEAR) == Year)).collect(Collectors.toCollection(LinkedList::new));
+		double sumOfRain = 0;
+		for(DailyWeatherReport aReport: data) {
+			for(Double aReading: aReport.aRainfall) {
+				sumOfRain = sumOfRain + aReading;
+			}
+		}
+		return sumOfRain;
+		
     }
 
     /**
