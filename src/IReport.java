@@ -1,4 +1,8 @@
-
+/**
+ * Interface to calculate averageTemp and totalRainfall
+ * @author Jean-Luc Pierre-Louis and Roman Wicky van Doyer
+ *
+ */
 public interface IReport {
 
 	double averageTempForMonth(int Month, int Year);

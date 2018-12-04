@@ -1,6 +1,11 @@
 import java.util.GregorianCalendar;
 import java.util.LinkedList;
 
+/**
+ * Class that handles daily weather reports 
+ * @author Jean-Luc Pierre-Louis and Roman Wicky van Doyer
+ *
+ */
 public class DailyWeatherReport{
 
     private GregorianCalendar date;
