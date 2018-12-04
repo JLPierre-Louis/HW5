@@ -1,37 +1,86 @@
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.LinkedList;
+import java.util.stream.Collectors;
 
-/**
- * Class that is utilized for finding average temperatures and total rainfall
- * to monitor the weather
- * @author Jean-Luc Pierre-Louis and Roman Wicky van Doyer
- *
- */
-public class WeatherMonitor implements IReport{
+public class WeatherMonitor{
 	
-	IReport reports;
+	// We won't actually require you to provide examples of daily weather reports for every single day in a month. 
+		// Your calculations of averageTempForMonth and totalRainfallForMonth should produce the averages over all days 
+		// in the month for which there are daily weather reports.
+
+
 	
-	WeatherMonitor(IReport reports) {
-		this.reports = reports;
+	WeatherMonitor(IReport aReport) {
+		this.reports = aReport;
 	}
+
+	private IReport reports;
 	
-	/**
-     * method to calculate the average temperature for a month
-     * @param Month : integer which represents the desired month
-     * @param Year : integer that represents the desired year
+    /**
+     *
+     * @param Month
+     * @param Year
      * @return Returns average temperatures over all days with a temperate in a month
      */
-	public double averageTempForMonth(int Month, int Year) {
+	double averageTempForMonth(int Month, int Year) {
 		return this.reports.averageTempForMonth(Month, Year);
 	}
 	
-	/**
-     * method to calculate the total rainfall for a month
-     * @param Month : integer which represents the desired month
-     * @param Year : integer that represents the desired year
+    /**
+     *
+     * @param Month
+     * @param Year
      * @return Returns average rainfall over all days with a rainfall in a month
      */
-	public double totalRainfallForMonth(int Month, int Year) {
+	double totalRainfallForMonth(int Month, int Year) {
 		return this.reports.totalRainfallForMonth(Month, Year);
-	}
+		
+    }
+
+    /**
+     *
+     * @param date
+     * @param readings
+     * @return adds a weather report with the specific date, and readings for that day
+     */
+	public void addDailyReport(GregorianCalendar date, LinkedList<Reading> readings) {
+
+	    //Gets the month of that date
+	    int month = date.get(Calendar.MONTH);
+	    //Gets the day of the month of that date
+	    int day = date.get(Calendar.DAY_OF_MONTH);
+
+	    int year = date.get(Calendar.YEAR);
+
+
+
+	    date = new GregorianCalendar(month, day, year);
+
+	    LinkedList<Double> readingsOnly = new LinkedList<Double>();
+	    LinkedList<Double> tempsOnly = new LinkedList<Double>();
+
+	    for(Reading aReading: readings){
+	        readingsOnly.add(aReading.getRainfall());
+	        tempsOnly.add(aReading.getTemp());
+
+        }
+
+
+        this.reports.addDailyReport(new DailyWeatherReport(date, tempsOnly, readingsOnly));
+    }
 
 }
+
+
+// weather data initially gathered from a weather sensor
+// sensor produces "Readings" which contain the Time(int hours, int minutes),
+// Temperature(double in-degrees-Fahrenheit), and Rainfall(double amount).
+// WeatherMonitor will store daily weather reports that each have all the 
+// readings for that day. a "DailyWeatherReport" contains the
+// Date(java class GregorianCalendar), and two LinkedLists(one for temp,
+// and one for the rainfall, both for that day).
+
+//When constructing a date for a daily weather report, use this version of the GregorianCalendar constructor:
+// public GregorianCalendar (int year, int month, int dayOfMonth)
 

@@ -95,40 +95,35 @@ public class Examples {
     // test average temperature for month with data
     @Test
     public void averageTempTest1() {
-    	IReport report1 = new ReportList(reports1);
-    	WeatherMonitor monitor1 = new WeatherMonitor(report1);
+    	WeatherMonitor monitor1 = new WeatherMonitor(new ReportList(reports1));
     	assertEquals(monitor1.averageTempForMonth(11, 1990), 67.6, 0.0);
     }
     
     // test average temperature for month with no data
     @Test
     public void averageTempTest2() {
-    	IReport report2 = new ReportList(reports2);
-    	WeatherMonitor monitor2 = new WeatherMonitor(report2);
+    	WeatherMonitor monitor2 = new WeatherMonitor(new ReportList(reports2));
     	assertEquals(monitor2.averageTempForMonth(11, 1990), -1, 0.0);
     }
     
     // test average temperature with a lot of data
     @Test
     public void averageTemptTest3() {
-    	IReport report3 = new ReportList(reports3);
-    	WeatherMonitor monitor3 = new WeatherMonitor(report3);
+    	WeatherMonitor monitor3 = new WeatherMonitor(new ReportList(reports3));
     	assertEquals(monitor3.averageTempForMonth(11, 1990), 66.55, 0.0);
     }
     
  // test total rain for month with data
     @Test
     public void totalRainTest1() {
-    	IReport report1 = new ReportList(reports1);
-    	WeatherMonitor monitor1 = new WeatherMonitor(report1);
+    	WeatherMonitor monitor1 = new WeatherMonitor(new ReportList(reports1));
     	assertEquals(monitor1.totalRainfallForMonth(11, 1990), 2.2, 0.0);
     }
     
     // test total rain for month with no data
     @Test
     public void totalRainTest2() {
-    	IReport report2 = new ReportList(reports2);
-    	WeatherMonitor monitor2 = new WeatherMonitor(report2);
+    	WeatherMonitor monitor2 = new WeatherMonitor(new ReportList(reports2));
     	assertEquals(monitor2.totalRainfallForMonth(11, 1990), 0, 0.0);
     }
 }

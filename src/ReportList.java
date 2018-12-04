@@ -53,33 +53,9 @@ public class ReportList implements IReport {
 			
 	    }
 
-	    /**
-	     * method to add a daily report
-	     * @param date : Gregorian Calendar to indicate the date of the reading
-	     * @param readings : linked list of readings 
-	     * @return adds a weather report with the specific date, and readings for that day
-	     */
-		public DailyWeatherReport addDailyReport(GregorianCalendar date, LinkedList<Reading> readings) {
+	public void addDailyReport(DailyWeatherReport aReport) {
+			this.reports.add(aReport);
 
-		    //Gets the month of that date
-		    int month = date.get(Calendar.MONTH);
-		    //Gets the day of the month of that date
-		    int day = date.get(Calendar.DAY_OF_MONTH);
-		    //Gets the year of the date
-		    int year = date.get(Calendar.YEAR);
-		    
-
-		    date = new GregorianCalendar(year, month, day);
-
-		    LinkedList<Double> readingsOnly = new LinkedList<Double>();
-		    LinkedList<Double> tempsOnly = new LinkedList<Double>();
-
-		    for(Reading aReading: readings){
-		        readingsOnly.add(aReading.getRainfall());
-		        tempsOnly.add(aReading.getTemp());
-	        }
-
-	        return new DailyWeatherReport(date, tempsOnly, readingsOnly);
-	    }
+	}
 	
 }
