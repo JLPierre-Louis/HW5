@@ -1,4 +1,3 @@
-import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.LinkedList;
 import java.util.stream.Collectors;
@@ -53,9 +52,14 @@ public class ReportList implements IReport {
 			
 	    }
 
-	public void addDailyReport(DailyWeatherReport aReport) {
+		/**
+		 * method that adds a daily weather report
+		 * @param aReport : DailyWeatherReport to be added
+		 * @return void
+		 */
+		public void addDailyReport(DailyWeatherReport aReport) {
 			this.reports.add(aReport);
 
-	}
+		}
 	
 }

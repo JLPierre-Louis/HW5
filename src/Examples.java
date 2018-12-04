@@ -78,19 +78,6 @@ public class Examples {
         reports3.add(new DailyWeatherReport(date4, tempReadings4, rainReadings4));
         reports3.add(new DailyWeatherReport(date5, tempReadings5, rainReadings5));
     }
-
-/*
-    @Test
-    public void Test1(){
-        LinkedList<Double> readingstest = new LinkedList<Double>();
-        readingstest.add(70.4);
-
-        LinkedList<Double> temptest = new LinkedList<Double>();
-        temptest.add(12.0);
-
-        DailyWeatherReport test1 = new DailyWeatherReport(date, readingstest, temptest);
-
-    } */
     
     // test average temperature for month with data
     @Test
@@ -126,4 +113,20 @@ public class Examples {
     	WeatherMonitor monitor2 = new WeatherMonitor(new ReportList(reports2));
     	assertEquals(monitor2.totalRainfallForMonth(11, 1990), 0, 0.0);
     }
+    
+    // test total rain when there's a lot of data
+    @Test
+    public void totalRainTest3() {
+    	WeatherMonitor monitor3 = new WeatherMonitor(new ReportList(reports3));
+    	assertEquals(monitor3.totalRainfallForMonth(11, 1990), 22.7, 0.0);
+    }
+    
+    // test hacker cannot add daily report
+    @Test
+    public void addDailyReportTest1() {
+    	WeatherMonitor monitor1 = new WeatherMonitor(new ReportList(reports1));
+    	monitor1.addDailyReport(new DailyWeatherReport(date1, tempReadings2, rainReadings2));
+    	assertEquals(monitor1.averageTempForMonth(11, 1990), 67.6, 0.0);
+    }
+    
 }
