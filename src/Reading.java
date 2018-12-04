@@ -1,7 +1,5 @@
-import java.util.GregorianCalendar;
-import java.util.LinkedList;
 
-public class Reading implements IWeather {
+public class Reading{
 
     private Time Time;
     private double temp;
@@ -25,7 +23,4 @@ public class Reading implements IWeather {
         return rainfall;
     }
 
-    public DailyWeatherReport addDailyReport(GregorianCalendar date, LinkedList<Reading> readings) {
-    	return new DailyWeatherReport();
-    }
 }

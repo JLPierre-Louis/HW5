@@ -1,7 +1,7 @@
-import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.LinkedList;
-public class DailyWeatherReport implements IWeather {
+
+public class DailyWeatherReport{
 
     private GregorianCalendar date;
     private LinkedList<Double> tempReading;
@@ -51,38 +51,6 @@ public class DailyWeatherReport implements IWeather {
 		}
     	return sumOfRain;
     }
-    
-    /**
-    *
-    * @param date
-    * @param readings
-    * @return adds a weather report with the specific date, and readings for that day
-    */
-	public DailyWeatherReport addDailyReport(GregorianCalendar date, LinkedList<Reading> readings) {
-
-	    //Gets the month of that date
-	    int month = date.get(Calendar.MONTH);
-	    //Gets the day of the month of that date
-	    int day = date.get(Calendar.DAY_OF_MONTH);
-
-	    int year = date.get(Calendar.YEAR);
-
-
-
-	    date = new GregorianCalendar(month, day, year);
-
-	    LinkedList<Double> readingsOnly = new LinkedList<Double>();
-	    LinkedList<Double> tempsOnly = new LinkedList<Double>();
-
-	    for(Reading aReading: readings){
-	        readingsOnly.add(aReading.getRainfall());
-	        tempsOnly.add(aReading.getTemp());
-
-       }
-
-
-       return new DailyWeatherReport(date, tempsOnly, readingsOnly);
-   }
 
 
 }
